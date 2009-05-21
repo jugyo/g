@@ -11,6 +11,10 @@ The Kernel.g that works like Kernel.p on growl :)
 Install
 --------
 
+    sudo gem install g
+
+or
+
     sudo gem install jugyo-g --source http://gems.github.com
 
 Synopsis
