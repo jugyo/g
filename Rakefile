@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.author = 'jugyo'
   s.email = 'jugyo.org@gmail.com'
   s.homepage = 'http://github.com/jugyo/g'
-  s.rubyforge_project = 'g'
+  s.rubyforge_project = 'kernelg'
   s.has_rdoc = false
 end
     EOS
