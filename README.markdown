@@ -20,6 +20,9 @@ or
 Synopsis
 --------
 
+    require 'rubygems'
+    require 'g'
+    
     g 'foo'
     g 1
     g self
