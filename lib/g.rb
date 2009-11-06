@@ -2,9 +2,14 @@ require 'rubygems'
 require 'ruby-growl'
 require 'pp'
 
+$g_host ||= "localhost"
+$g_priority ||= 0
+$g_sticky ||= true
+
 module Kernel
-  GROWL = Growl.new "localhost", $0, ["Kernel.g"]
   def g(*args)
+    growl = Growl.new $g_host, $0, ["Kernel.g"]
+
     messages =
       if args.empty?
         [nil.pretty_inspect]
@@ -12,7 +17,7 @@ module Kernel
         args.map { |i| i.pretty_inspect }
       end
 
-    messages.each { |i| GROWL.notify "Kernel.g", $0, i }
+    messages.each { |i| growl.notify "Kernel.g", $0, i, $g_priority, $g_sticky }
 
     if args.empty?
       nil

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'g'
-  s.version = '1.1.0'
+  s.version = '1.2.0'
   s.summary = "The Kernel.g that works like Kernel.p on growl :)"
   s.description = "The Kernel.g that works like Kernel.p on growl :)"
   s.files = %w( lib/g.rb
