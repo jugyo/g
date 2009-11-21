@@ -7,8 +7,10 @@ $g_priority ||= 0
 $g_sticky ||= true
 
 module Kernel
-  def g(*args)
+  def g(*args, &block)
     growl = Growl.new $g_host, $0, ["Kernel.g"]
+
+    args.push(block) if block
 
     messages =
       if args.empty?
