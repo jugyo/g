@@ -8,18 +8,18 @@ $g_sticky ||= true
 
 module Kernel
   def g(*args, &block)
-    growl = Growl.new $g_host, $0, ["Kernel.g"]
+    growl = Growl.new $g_host, 'g', [$0]
 
     args.push(block) if block
 
     messages =
       if args.empty?
-        [nil.pretty_inspect]
+        ['g!']
       else
         args.map { |i| i.pretty_inspect }
       end
 
-    messages.each { |i| growl.notify "Kernel.g", $0, i, $g_priority, $g_sticky }
+    messages.each { |i| growl.notify $0, 'g', i, $g_priority, $g_sticky }
 
     if args.empty?
       nil

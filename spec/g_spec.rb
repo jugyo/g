@@ -8,13 +8,13 @@ describe 'g' do
   end
 
   it 'calls with a arg' do
-    @g.should_receive(:notify).with("Kernel.g", $0, 'foo'.pretty_inspect, 0, true)
+    @g.should_receive(:notify).with($0, "g", 'foo'.pretty_inspect, 0, true)
     g('foo').should == 'foo'
   end
 
   it 'calls with block' do
     block = Proc.new {}
-    @g.should_receive(:notify).with("Kernel.g", $0, block.pretty_inspect, 0, true)
+    @g.should_receive(:notify).with($0, "g", block.pretty_inspect, 0, true)
     g(&block).should == block
   end
 
@@ -25,7 +25,7 @@ describe 'g' do
   end
 
   it 'calls without args' do
-    @g.should_receive(:notify).with("Kernel.g", $0, nil.pretty_inspect, 0, true)
+    @g.should_receive(:notify).with($0, "g", "g!", 0, true)
     g.should == nil
   end
 end
