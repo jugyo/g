@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'ruby-growl'
+require 'ruby_gntp'
 require 'pp'
 
 $g_host ||= "localhost"
@@ -8,7 +8,7 @@ $g_sticky ||= true
 
 module Kernel
   def g(*args, &block)
-    growl = Growl.new $g_host, 'g', [$0]
+    # growl = Growl.new $g_host, 'g', [$0]
 
     args.push(block) if block
 
@@ -19,7 +19,8 @@ module Kernel
         args.map { |i| i.pretty_inspect }
       end
 
-    messages.each { |i| growl.notify $0, 'g', i, $g_priority, $g_sticky }
+    # messages.each { |i| growl.notify $0, 'g', i, $g_priority, $g_sticky }
+    messages.each { |i| GNTP.notify :app_name => $0, :title => 'g', :text => i, :sticky => $g_sticky }
 
     if args.empty?
       nil

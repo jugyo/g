@@ -11,15 +11,16 @@ begin
     gem.homepage = "http://github.com/jugyo/g"
     gem.authors = ["jugyo"]
     gem.add_development_dependency "rspec", ">= 0"
-    gem.add_dependency "ruby-growl", ">= 1.0.1"
+    gem.add_dependency "ruby_gntp", ">= 1.0.1"
   end
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end
 
-require 'spec/rake/spectask'
-desc 'run all specs'
-Spec::Rake::SpecTask.new do |t|
-  t.spec_files = FileList['spec/**/*_spec.rb']
-  t.spec_opts = ['-c']
+require 'rspec/core'
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec) do |spec|
+  spec.pattern = FileList['spec/**/*_spec.rb']
 end
+
+task :default => :spec
