@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name        = "g"
-  s.version     = "1.5.0"
+  s.version     = "1.6.0"
   s.authors     = ["jugyo"]
   s.email       = ["jugyo.org@gmail.com"]
   s.homepage    = "http://github.com/jugyo/g"
