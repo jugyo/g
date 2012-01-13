@@ -3,24 +3,24 @@ require 'g'
 
 describe 'g' do
   it 'calls with a arg' do
-    GNTP.should_receive(:notify).with(:app_name => $0, :title => "g", :text => "foo".pretty_inspect, :sticky=>true)
+    GNTP.should_receive(:notify).with(:app_name => $0, :title => "g", :text => "foo", :sticky=>true)
     g('foo').should == 'foo'
   end
 
-  it 'calls with block' do
-    block = Proc.new {}
-    GNTP.should_receive(:notify).with(:app_name => $0, :title => "g", :text => block.pretty_inspect, :sticky=>true)
-    g(&block).should == block
-  end
-
   it 'calls with args' do
-    block = Proc.new {}
-    GNTP.should_receive(:notify).exactly(3).times
-    g('foo', 1, &block).should == ['foo', 1, block]
+    GNTP.should_receive(:notify).exactly(2).times
+    g('foo', 1).should == ['foo', 1]
   end
 
-  it 'calls without args' do
-    GNTP.should_receive(:notify).with(:app_name => $0, :title => "g", :text => "g!", :sticky=>true)
-    g.should == nil
+  it 'calls for instance' do
+    object = Object.new
+    GNTP.should_receive(:notify).with(:app_name => $0, :title => "g", :text => object.pretty_inspect, :sticky=>true)
+    object.g.should == object
+  end
+
+  it 'calls with &block' do
+    object = "foo"
+    GNTP.should_receive(:notify).with(:app_name => $0, :title => "g", :text => "FOO", :sticky=>true)
+    object.g {|i| i.upcase}.should == object
   end
 end
