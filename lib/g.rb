@@ -40,7 +40,7 @@ catch(:break) do
   %w(terminal-notifier ruby_gntp).each do |lib|
     begin
       require lib
-      require "g/#{lib}"
+      require_relative "g/#{lib}"
       throw :break
     rescue LoadError
     end
