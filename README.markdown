@@ -1,21 +1,17 @@
 g
 ========
 
-[http://github.com/jugyo/g/tree/master](http://github.com/jugyo/g/tree/master)
+[http://github.com/jugyo/g](http://github.com/jugyo/g)
 
 Description
 --------
 
-The Kernel.g that works like Kernel.p on growl :)
+The Kernel.g that works like Kernel.p by using terminal-notifier or growl.
 
 Install
 --------
 
-    sudo gem install g
-
-or
-
-    sudo gem install jugyo-g --source http://gems.github.com
+    gem install g
 
 Synopsis
 --------
@@ -38,14 +34,14 @@ Synopsis
 Requirements
 --------
 
-* ruby-growl
+`terminal-notifier` or `ruby_gntp`
 
 License
 --------
 
 (The MIT License)
 
-Copyright (c) 2008-2009 jugyo
+Copyright (c) 2008-2012 jugyo
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
