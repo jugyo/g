@@ -13,6 +13,14 @@ Install
 
     gem install g
 
+and
+
+    gem install terminal-notifier
+
+or
+
+    gem install ruby_gntp
+
 Synopsis
 --------
 
